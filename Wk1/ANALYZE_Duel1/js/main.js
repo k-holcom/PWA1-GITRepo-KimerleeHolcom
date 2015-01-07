@@ -30,14 +30,14 @@
     var round=0;                            //declaring initial round number
 
     function fight(){                       //declaring beginning of function
-        alert(playerOneName+":"+playerOneHealth+"  *START*  "+playerTwoName+":"+playerTwoHealth);
-        for (var i = 0; i < 10; i++)        //pop up box with each player's name and starting health
+        alert(playerOneName+":"+playerOneHealth+"  *START*  "+playerTwoName+":"+playerTwoHealth);       //pop up box with each player's name and starting health
+        for (var i = 0; i < 10; i++)                    //starting loop that will be the fight
         {
             //random formula is - Math.floor(Math.random() * (max - min) + min);
-            var minDamage1 = player1Damage * .5;
-            var minDamage2 = player2Damage * .5;
-            var f1 = Math.floor(Math.random()*(player1Damage-minDamage1)+minDamage1);
-            var f2 = Math.floor(Math.random()*(player2Damage-minDamage2)+minDamage2);
+            var minDamage1 = player1Damage * .5;        //calculating the minimum amount of damage player 1 takes
+            var minDamage2 = player2Damage * .5;        //calculating the minimum amount of damage player 2 takes
+            var f1 = Math.floor(Math.random()*(player1Damage-minDamage1)+minDamage1);       //calculating the amount of damage done to player 1 by subtracting minimum damage from player damage (both for player 1, multiply it by a random number between 0 and 1, then adding the minimum damage.
+            var f2 = Math.floor(Math.random()*(player2Damage-minDamage2)+minDamage2);       //calculating the amount of damage done to player 2 by subtracting minimum damage from player damage (both for player 2, multiply it by a random number between 0 and 1, then adding the minimum damage.
 
             //inflict damage
             playerOneHealth-=f1;
