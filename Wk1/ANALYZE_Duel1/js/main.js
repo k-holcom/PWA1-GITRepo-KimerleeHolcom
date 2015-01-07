@@ -12,22 +12,22 @@
 // self-executing function
 (function(){
 
-    console.log("FIGHT!!!");
+    console.log("FIGHT!!!");                //printing to console FIGHT!!!
 
     //player name
-    var playerOneName = "Spiderman";
-    var playerTwoName = "Batman";
+    var playerOneName = "Spiderman";        //declaring the first player's name
+    var playerTwoName = "Batman";           //declaring the second player's name
 
     //player damage
-    var player1Damage = 20;
-    var player2Damage = 20;
+    var player1Damage = 20;                 //declaring the amount of damage player 1 does
+    var player2Damage = 20;                 //declaring the amount of damage player 2 does
 
     //player health
-    var playerOneHealth = 100;
-    var playerTwoHealth = 100;
+    var playerOneHealth = 100;              //declaring the amount of health player 1 starts with
+    var playerTwoHealth = 100;              //declaring the amount of health player 2 starts with
 
     //initiate round
-    var round=0;
+    var round=0;                            //declaring initial round number
 
     function fight(){
         alert(playerOneName+":"+playerOneHealth+"  *START*  "+playerTwoName+":"+playerTwoHealth);
