@@ -61,18 +61,18 @@
           };
     };
 
-    function winnerCheck(){
-        var result="no winner";
-        if (playerOneHealth<1 && playerTwoHealth<1)
+    function winnerCheck(){                             //function used to check if there is a winner
+        var result="no winner";                         //default result if none of the following code is true
+        if (playerOneHealth<1 && playerTwoHealth<1)     //checks to see if both players health is below 1
+        {                                               //if both are < 1 ,then this block of code is ran
+            result = "You Both Die";                    //the result variable is set to "You Both Die"
+        } else if(playerOneHealth<1){                   //if player 1's health is < 1, then this block is ran
+            result =playerTwoName+" WINS!!!"            //result variable is set to tell the user that player 2 wins
+        } else if (playerTwoHealth<1)                   //if player 2's health is < 1, then this block is ran
         {
-            result = "You Both Die";
-        } else if(playerOneHealth<1){
-            result =playerTwoName+" WINS!!!"
-        } else if (playerTwoHealth<1)
-        {
-            result = playerOneName+" WINS!!!"
+            result = playerOneName+" WINS!!!"           //result variable is set to tell the user that player 1 wins
         };
-       return result;
+       return result;                                   //returns the value of "result" so it can be used when the function winnerCheck() is called
     };
 
     /*******  The program gets started below *******/
