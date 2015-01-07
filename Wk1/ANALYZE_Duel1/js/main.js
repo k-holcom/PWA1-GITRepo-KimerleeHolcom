@@ -46,16 +46,17 @@
             console.log(playerOneName+": "+playerOneHealth + " " + playerTwoName+":"+playerTwoHealth);      //prints out each player's name and current health to the console log
 
             //check for victor
-            var result = winnerCheck();
-            console.log(result);
-            if (result==="no winner")
-            {
-                round++;
-                alert(playerOneName+":"+playerOneHealth+"  *ROUND "+round+" OVER"+"*  "+playerTwoName+":"+playerTwoHealth);
+            var result = winnerCheck();                 //variable declared to check if there is a winner by using the winnerCheck() function
+            console.log(result);                        //prints out to the console if there is a winner
+            if (result==="no winner")                   //checks the variable result to see if it equals "no winner"
+            {                                           //if there is no winner, this block of code is ran
+                round++;                                //round number increases
+                alert(playerOneName+":"+playerOneHealth+"  *ROUND "+round+" OVER"+"*  "+playerTwoName+":"+playerTwoHealth);                  //pop up box saying Round X is over, and the player's name and current health
 
-            } else{
-                alert(result);
-                break;
+
+            } else{                                     //if there is a winner, then this block of code is ran
+                alert(result);                          //an alert with the winner's name is sent to the user
+                break;                                  // ends the game
             };
 
           };
