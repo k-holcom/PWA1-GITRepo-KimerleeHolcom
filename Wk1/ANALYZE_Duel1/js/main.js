@@ -29,9 +29,9 @@
     //initiate round
     var round=0;                            //declaring initial round number
 
-    function fight(){
+    function fight(){                       //declaring beginning of function
         alert(playerOneName+":"+playerOneHealth+"  *START*  "+playerTwoName+":"+playerTwoHealth);
-        for (var i = 0; i < 10; i++)
+        for (var i = 0; i < 10; i++)        //pop up box with each player's name and starting health
         {
             //random formula is - Math.floor(Math.random() * (max - min) + min);
             var minDamage1 = player1Damage * .5;
