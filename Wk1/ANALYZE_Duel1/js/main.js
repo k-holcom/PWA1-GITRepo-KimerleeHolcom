@@ -40,10 +40,10 @@
             var f2 = Math.floor(Math.random()*(player2Damage-minDamage2)+minDamage2);       //calculating the amount of damage done to player 2 by subtracting minimum damage from player damage (both for player 2, multiply it by a random number between 0 and 1, then adding the minimum damage.
 
             //inflict damage
-            playerOneHealth-=f1;
-            playerTwoHealth-=f2;
+            playerOneHealth-=f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation
+            playerTwoHealth-=f2;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation
 
-            console.log(playerOneName+": "+playerOneHealth + " " + playerTwoName+":"+playerTwoHealth);
+            console.log(playerOneName+": "+playerOneHealth + " " + playerTwoName+":"+playerTwoHealth);      //prints out each player's name and current health to the console log
 
             //check for victor
             var result = winnerCheck();
