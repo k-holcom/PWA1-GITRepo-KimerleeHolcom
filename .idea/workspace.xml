@@ -37,10 +37,10 @@
       <file leaf-file-name="search.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wk1/goal3_debug/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53846157" vertical-offset="450" max-vertical-offset="2115">
-              <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.40384614" vertical-offset="735" max-vertical-offset="2160">
+              <caret line="57" column="76" selection-start-line="57" selection-start-column="76" selection-end-line="57" selection-end-column="76" />
               <folding>
-                <marker date="1420828240000" expanded="true" signature="4046:4061" placeholder="..." />
+                <marker date="1420828586000" expanded="true" signature="4436:4451" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -258,10 +258,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Wk1/goal3_debug/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53846157" vertical-offset="450" max-vertical-offset="2115">
-          <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.40384614" vertical-offset="735" max-vertical-offset="2160">
+          <caret line="57" column="76" selection-start-line="57" selection-start-column="76" selection-end-line="57" selection-end-column="76" />
           <folding>
-            <marker date="1420828240000" expanded="true" signature="4046:4061" placeholder="..." />
+            <marker date="1420828586000" expanded="true" signature="4436:4451" placeholder="..." />
           </folding>
         </state>
       </provider>
