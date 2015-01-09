@@ -37,16 +37,16 @@
 	};
 	
 	// Finds search matches
-	var search = function(query)											
+	var search = function(query)											//beginning of a while loop. Starts while the string is at the first character(String is set to empty)
 		
 		// split the user's search query string into an array
-		var queryArray = query.join(" ");
+		var queryArray = query.join(" ");									//This line of code assumes query is an array, therefore it is joining it to become a string (should use .split(" ") to split the string to an array)
 		
 		// array to store matched results from database.js
-		var results = [];
+		var results = [];													//This sets up the variable results and believe they are trying to create a new array because of the use of the brackets[]
 
 		// loop through each index of db array
-		for(var i=0, j=db.length; i<j; i++){
+		for(var i=0, j=db.length; i<j; i++){					
 		
 			// each db[i] is a single video item, each title ends with a pipe "|"
 			// save a lowercase variable of the video title
