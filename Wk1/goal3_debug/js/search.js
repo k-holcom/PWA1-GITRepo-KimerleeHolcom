@@ -55,17 +55,17 @@
 			
 			// loop through the user's search query words
 			// save a lowercase variable of the search keyword
-			for(var ii=0, jj=queryArray.length; ii<jj; ii++){				
-				var qitem = queryArray[ii].tolowercase();
+			for(var ii=0, jj=queryArray.length; ii<jj; ii++){				//embedded for loop, uses ii for increment, jj for the array length variable and increments ii by 1 each time it is looped.
+				var qitem = queryArray[ii].tolowercase();					//sets qitem to the array item at that specific index (noted by ii) to all lowercase lettsers
 				
 				// is the keyword anywhere in the video title?
 				// If a match is found, push full db[i] into results array
-				var compare = dbitem.indexOf(qitem);
-				if(compare !== -1){
-					results.push(db[i]);
-				};
-			;
-		;
+				var compare = dbitem.indexOf(qitem);						//sets variable compare to the dbitem to the same index as the one in qitem.
+				if(compare !== -1){											//checks to see if the variable compare is not false(aka is true)
+					results.push(db[i]);									//if the check is true, then it adds that item to the array for results
+				};															//ends if statement
+			;																//this is suppose to end the embedded for loop(needs a })
+		;																	//suppose to end the original for loop(needs } as well)
 		
 		results.sort();
 		
