@@ -17,27 +17,27 @@
 	var validqte == function(query){										//anonymous function declared with the parameter query entered (validqte may be misspelled)
 		
 		// Trim whitespace from start and end of search query
-		while(query.charAt(0) = " "){
-			query = query.substring(1, query.length);						
+		while(query.charAt(0) = " "){										//beginning of a while loop. Starts while the string is at the first character(String is set to empty. Should it check to see if it is == or ===?)
+			query = query.substring(1, query.length);						//sets query to the substring starting at the second character to the end of the string(shouldn't it be 0 instead of 1?)
 		};
-		while(query.charAt(query.length-1) === ""){
-			query = query.substring(0, query.length-1);
+		while(query.charAt(query.length-1) === ""){							//new loop that checks to see if the last character of the "query" is empty.
+			query = query.substring(0, query.length-1);						//sets the query to the whole string from the character in the 0 index spot of the string, all the way to the end of the string (back one character)
 		;
 		
 		// Check search length, must have 3 characters
-		if(query.length < 3){
+		if(query.length < 3){												//checking to see if the query length is smaller than 3
 			alert("Your search query is too small, try again.);
-			
+																			//(This is for line # 29) this line alerts the user that their search inquiry is too small. (There needs to be a " at the end of the alert()
 			// (DO NOT FIX THE LINE DIRECTLY BELOW)
-			searchInput.focus();
-			return;
+			searchInput.focus();											//this make sure the id (in html) is focused and nothing else. (Should it be searchForm not searchInput?)
+			return;															//this is used as a way to end the script instead of returning a value.
 		};
 		
-		search(query);
+		search(query);														//calls the search function with the query as the argument
 	};
 	
 	// Finds search matches
-	var search = function(query)
+	var search = function(query)											
 		
 		// split the user's search query string into an array
 		var queryArray = query.join(" ");
