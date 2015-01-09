@@ -21,7 +21,7 @@
 			query = query.substring(1, query.length);						//sets query to the substring starting at the second character to the end of the string(shouldn't it be 0 instead of 1?)
 		};
 		while(query.charAt(query.length-1) === ""){							//new loop that checks to see if the last character of the "query" is empty.
-			query = query.substring(0, query.length-1);						//sets the query to the whole string from the character in the 0 index spot of the string, all the way to the end of the string (back one character)
+			query = query.substring(0, query.length-1);						//sets the query to the whole string from the character in the 0 index spot of the string, all the way to the end of the string 
 		;
 		
 		// Check search length, must have 3 characters
