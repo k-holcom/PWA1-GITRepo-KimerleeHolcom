@@ -87,40 +87,40 @@
 	};
 	
 	// Put matches into page as paragraphs with anchors
-	var showMatches = function(results){
+	var showMatches = function(results){									//defining the showMatches function using anonymous function
 		
 		// THE NEXT 4 LINES ARE CORRECT.
-		var html = '<p>Results</p>', 
-			title, 
-			url
-		;
+		var html = '<p>Results</p>',										//defining and setting the variable html to the paragraph tag for "Results",
+			title,															//title variable is used in the definition of the html variable,
+			url																//as is the url variable
+		;																	//end of setting what html is equal to
 		
 		// loop through all the results search() function
-		for(var i=0, j=results.length; i<j; i++){
+		for(var i=0, j=results.length; i<j; i++){							//for loop using i as incrementing number, j as the length of the results array, and increasing i each time the loop is used
 		
 			// title of video ends with pipe
 			// pull the title's string using index numbers
-			titleEnd = results[i].indexOf('|');
-			title = results[i].subString(0, titleEnd);
+			titleEnd = results[i].indexOf('|');								//setting the variable titleEnd to the value of what the index (i) of results is equal to, adding a | to the end
+			title = results[i].subString(0, titleEnd);						//setting the title to the substring of the value of index(i) of the results array starting at character 0 (the first character) and going to the value of titleEnd
 			
 			// pull the video url after the title
-			url = results[i].substring(results[i].indexOf('|')+1, results[i].length);
+			url = results[i].substring(results[i].indexOf('|')+1, results[i].length);	//setting url to the the value of results at index i but only that which is after the | (after titleEnd) to the end of the index i
 			
 			// make the video link - THE NEXT LINE IS CORRECT.
-			html += '<p><a href=' + url + '>' + title + '</a></p>';
+			html += '<p><a href=' + url + '>' + title + '</a></p>';			//adding a link to the source using html tags for links and paragraphs
 		};
-		resultsDIV.innerHTML = html; //THIS LINE IS CORRECT.
+		resultsDIV.innerHTML = html; //THIS LINE IS CORRECT.				//inserting the link made above into the resultsDiv id
 	};
 	
 	// The onsubmit event will be reviewed in upcoming Course Material.
 	// THE LINE DIRECTLY BELOW IS CORRECT
-	document.forms[0].onsubmit = function(){
-		var query = searchInput.value;
-		validqte(query);
+	document.forms[0].onsubmit = function(){								//creating a new anonymous function when the search form is submitted
+		var query = searchInput.value;										//setting the value of the new variable query to the value of the search form
+		validqte(query);													//calling the validqte() with an arguement of query
 
         // return false is needed for most events - this will be reviewed in upcoming course material
         // THE LINE DIRECTLY BELOW IS CORRECT
-		return false;
+		return false;														//returns the value false
 	;
 
-})();
+})();																		//end of program
