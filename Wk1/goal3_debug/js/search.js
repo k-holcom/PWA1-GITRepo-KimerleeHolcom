@@ -67,13 +67,13 @@
 			;																//this is suppose to end the embedded for loop(needs a })
 		;																	//suppose to end the original for loop(needs } as well)
 		
-		results.sort();
+		results.sort();														//sorts the array results alphabetically
 		
 		// Check that matches were found, and run output functions
-		if(results.length = 0){
-			noMatch();
-		}else{
-			showMatches(results);
+		if(results.length = 0){												//checks to see if the number of matches equals 0 (should be == or === not just =)
+			noMatch();														//runs the noMatch function if it is true
+		}else{																//this block runs if the condition above is false
+			showMatches(results);											//runs the showMatches function with a argument of results
 		};
 	};
 	
