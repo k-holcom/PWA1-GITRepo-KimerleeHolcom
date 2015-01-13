@@ -67,14 +67,14 @@
 
     function winnerCheck(){                             //function used to check if there is a winner
         var result="no winner";                         //default result if none of the following code is true
-        if (playerOneHealth<1 && playerTwoHealth<1)     //checks to see if both players health is below 1
+        if (playerOne[2]<1 && playerTwo[2]<1)           //checks to see if both players health is below 1 (using playerOne & playerTwo arrays each with the index of 2 to check their health)
         {                                               //if both are < 1 ,then this block of code is ran
             result = "You Both Die";                    //the result variable is set to "You Both Die"
-        } else if(playerOneHealth<1){                   //if player 1's health is < 1, then this block is ran
-            result =playerTwoName+" WINS!!!"            //result variable is set to tell the user that player 2 wins
-        } else if (playerTwoHealth<1)                   //if player 2's health is < 1, then this block is ran
+        } else if(playerOne[2]<1){                   //if player 1's health is < 1, then this block is ran (using playerOne array index 2 to check their health)
+            result =playerTwo[0]+" WINS!!!"            //result variable is set to tell the user that player 2 wins (using playerTwo array index 0 to get their name)
+        } else if (playerTwo[2]<1)                   //if player 2's health is < 1, then this block is ran (using playerTwo array index 2 to check their health)
         {
-            result = playerOneName+" WINS!!!"           //result variable is set to tell the user that player 1 wins
+            result = playerOne[0]+" WINS!!!"           //result variable is set to tell the user that player 1 wins (using playerTwo array index 0 to get their name)
         };
        return result;                                   //returns the value of "result" so it can be used when the function winnerCheck() is called
     };
