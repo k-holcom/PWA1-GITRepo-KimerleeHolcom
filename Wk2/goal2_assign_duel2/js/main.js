@@ -13,7 +13,10 @@
 (function(){
 
     console.log("FIGHT!!!");                //printing to console FIGHT!!!
-
+    //player information
+    var playerOne = ["Spiderman", 20, 100]; //player one's information wrapped up into an array
+    var playerTwo = ["Batman", 20, 100];    //player two's information wrapped up into an array
+    /*                                      //commented out the original code
     //player name
     var playerOneName = "Spiderman";        //declaring the first player's name
     var playerTwoName = "Batman";           //declaring the second player's name
@@ -25,7 +28,7 @@
     //player health
     var playerOneHealth = 100;              //declaring the amount of health player 1 starts with
     var playerTwoHealth = 100;              //declaring the amount of health player 2 starts with
-
+    */
     //initiate round
     var round=0;                            //declaring initial round number
 
