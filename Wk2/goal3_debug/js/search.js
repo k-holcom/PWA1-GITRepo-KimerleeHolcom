@@ -12,22 +12,22 @@
 		searchInput = document.forms[0].search,								//sets variable to the search form located in the HTML (not correctly declared right missing "var")
 		currentSearch = ''													//variable set to empty string (not correctly declared right missing "var")
 	;
-	
+
 	// Validates search query
-	var validqte == function(query){										//anonymous function declared with the parameter query entered (validqte may be misspelled)
-		
+	var validqte = function(query){											//anonymous function declared with the parameter query entered (validqte may be misspelled) -- changed == to a single = (not comparing it is setting up an anonymous function
+		//console.log("this is right BEFORE the while loop");					//checking functionality
 		// Trim whitespace from start and end of search query
-		while(query.charAt(0) = " "){										//beginning of a while loop. Starts while the string is at the first character(String is set to empty. Should it check to see if it is == or ===?)
+		while(query.charAt(0) === " "){										//beginning of a while loop. Starts while the string is at the first character(String is set to empty. Should it check to see if it is == or ===?) -- changed it from = to === to compare the two instead of setting them equal
+			console.log("this is right INSIDE the while loop");					//checking functionality
 			query = query.substring(1, query.length);						//sets query to the substring starting at the second character to the end of the string(shouldn't it be 0 instead of 1?)
 		};
-		while(query.charAt(query.length-1) === ""){							//new loop that checks to see if the last character of the "query" is empty.
-			query = query.substring(0, query.length-1);						//sets the query to the whole string from the character in the 0 index spot of the string, all the way to the end of the string
-		;
+		while(query.charAt(query.length-1) === "") {							//new loop that checks to see if the last character of the "query" is empty.
+			query = query.substring(0, query.length - 1);						//sets the query to the whole string from the character in the 0 index spot of the string, all the way to the end of the string
+		};																	//had to add a closing }
 		
 		// Check search length, must have 3 characters
 		if(query.length < 3){												//checking to see if the query length is smaller than 3
-			alert("Your search query is too small, try again.);
-																			//(This is for line # 29) this line alerts the user that their search inquiry is too small. (There needs to be a " at the end of the alert()
+			alert("Your search query is too small, try again.");			//this line alerts the user that their search inquiry is too small. (There needs to be a " at the end of the alert() ) -- added a " at the end of the string inside the alert()
 			// (DO NOT FIX THE LINE DIRECTLY BELOW)
 			searchInput.focus();											//this make sure the id (in html) is focused and nothing else. (Should it be searchForm not searchInput?)
 			return;															//this is used as a way to end the script instead of returning a value.
@@ -37,7 +37,7 @@
 	};
 	
 	// Finds search matches
-	var search = function(query)											//beginning of a while loop. Starts while the string is at the first character(String is set to empty)
+	var search = function(query){											//beginning of a while loop. Starts while the string is at the first character(String is set to empty) -- had to add an open {
 		
 		// split the user's search query string into an array
 		var queryArray = query.join(" ");									//This line of code assumes query is an array, therefore it is joining it to become a string (should use .split(" ") to split the string to an array)
@@ -55,17 +55,17 @@
 			
 			// loop through the user's search query words
 			// save a lowercase variable of the search keyword
-			for(var ii=0, jj=queryArray.length; ii<jj; ii++){				//embedded for loop, uses ii for increment, jj for the array length variable and increments ii by 1 each time it is looped.
+			for(var ii=0, jj=queryArray.length; ii<jj; ii++) {				//embedded for loop, uses ii for increment, jj for the array length variable and increments ii by 1 each time it is looped.
 				var qitem = queryArray[ii].tolowercase();					//sets qitem to the array item at that specific index (noted by ii) to all lowercase lettsers
-				
+
 				// is the keyword anywhere in the video title?
 				// If a match is found, push full db[i] into results array
 				var compare = dbitem.indexOf(qitem);						//sets variable compare to the dbitem to the same index as the one in qitem.
-				if(compare !== -1){											//checks to see if the variable compare is not false(aka is true)
+				if (compare !== -1) {											//checks to see if the variable compare is not false(aka is true)
 					results.push(db[i]);									//if the check is true, then it adds that item to the array for results
 				};															//ends if statement
-			;																//this is suppose to end the embedded for loop(needs a })
-		;																	//suppose to end the original for loop(needs } as well)
+			};																//this is suppose to end the embedded for loop(needs a }) -- had to add a closing }
+		};																	//suppose to end the original for loop(needs } as well) -- had to add a closing }
 		
 		results.sort();														//sorts the array results alphabetically
 		
@@ -114,13 +114,13 @@
 	
 	// The onsubmit event will be reviewed in upcoming Course Material.
 	// THE LINE DIRECTLY BELOW IS CORRECT
-	document.forms[0].onsubmit = function(){								//creating a new anonymous function when the search form is submitted
+	document.forms[0].onsubmit = function() {								//creating a new anonymous function when the search form is submitted
 		var query = searchInput.value;										//setting the value of the new variable query to the value of the search form
 		validqte(query);													//calling the validqte() with an arguement of query
 
-        // return false is needed for most events - this will be reviewed in upcoming course material
-        // THE LINE DIRECTLY BELOW IS CORRECT
+		// return false is needed for most events - this will be reviewed in upcoming course material
+		// THE LINE DIRECTLY BELOW IS CORRECT
 		return false;														//returns the value false
-	;
+	};																		//had to add a closing }
 
-})();																		//end of program
+})();																		//end of program -- this is correct no errors on this line
