@@ -36,11 +36,10 @@
     console.log(button);
         if (round < 10) {                         //checking to see if the round is < 10, if so, then fight function called and button still says Fight.
             function fight() {                       //declaring beginning of function
-                document.getElementById('kabal').innerHTML = players[0].health;         //changing HTML to player's current health
-                document.getElementById('kratos').innerHTML = players[1].health;        //changing HTML to player's current health
+
                 //alert(playerOne[0] + ":" + playerOne[2] + "  *START*  " + playerTwo[0] + ":" + playerTwo[2]);       //pop up box with each player's name and starting health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed (i.e player name is in the index associated with the number 0, damage is index 1, and health is 2))
-                for (var i = 0; i < 10; i++)                    //starting loop that will be the fight
-                {
+                //for (var i = 0; i < 10; i++)                    //starting loop that will be the fight
+                //{
                     //random formula is - Math.floor(Math.random() * (max - min) + min);
                     var minDamage1 = players[0].damage * .5;        //calculating the minimum amount of damage player 1 takes (the information from the object created in the players array)
                     var minDamage2 = players[1].damage * .5;        //calculating the minimum amount of damage player 2 takes (the information from the object created in the players array)
@@ -59,15 +58,17 @@
                     if (result === "no winner")                   //checks the variable result to see if it equals "no winner"
                     {                                           //if there is no winner, this block of code is ran
                         round++;                                //round number increases
-                        alert(players[0].name + ":" + players[0].health + "  *ROUND " + round + " OVER" + "*  " + players[1].name + ":" + players[1].health);                  //pop up box saying Round X is over, and the player's name and current health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the objects inside the players array)
+                        document.getElementById('kabal').innerHTML = players[0].health;         //changing HTML to player's current health
+                        document.getElementById('kratos').innerHTML = players[1].health;        //changing HTML to player's current health
+                        //alert(players[0].name + ":" + players[0].health + "  *ROUND " + round + " OVER" + "*  " + players[1].name + ":" + players[1].health);                  //pop up box saying Round X is over, and the player's name and current health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the objects inside the players array)
 
 
                     } else {                                     //if there is a winner, then this block of code is ran
                         alert(result);                          //an alert with the winner's name is sent to the user
-                        break;                                  // ends the game
+                        //break;                                  // ends the game
                     };
 
-                };
+                //};
             };
         } else {
             //code to disable button goes here.
