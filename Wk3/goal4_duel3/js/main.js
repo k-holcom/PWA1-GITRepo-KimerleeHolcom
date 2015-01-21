@@ -46,7 +46,7 @@
                     var minDamage2 = players[1].damage * .5;        //calculating the minimum amount of damage player 2 takes (the information from the object created in the players array)
                     var f1 = Math.floor(Math.random() * (players[0].damage - minDamage1) + minDamage1);       //calculating the amount of damage done to player 1 by subtracting minimum damage from player damage (getting player damage from the object created in players array)
                     var f2 = Math.floor(Math.random() * (players[1].damage - minDamage2) + minDamage2);       //calculating the amount of damage done to player 2 by subtracting minimum damage from player damage (getting player damage from the object created in players array)
-                    
+
                     //inflict damage
                     players[0].health = players[0].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerOne)
                     players[1].health = players[1].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerTwo)
@@ -75,14 +75,14 @@
 
     function winnerCheck(){                             //function used to check if there is a winner
         var result="no winner";                         //default result if none of the following code is true
-        if (playerOne[2]<1 && playerTwo[2]<1)           //checks to see if both players health is below 1 (using playerOne & playerTwo arrays each with the index of 2 to check their health)
+        if (players[0].health<1 && players[1].health<1)           //checks to see if both players health is below 1 (uses information from players array of the player objects)
         {                                               //if both are < 1 ,then this block of code is ran
             result = "You Both Die";                    //the result variable is set to "You Both Die"
-        } else if(playerOne[2]<1){                   //if player 1's health is < 1, then this block is ran (using playerOne array index 2 to check their health)
-            result =playerTwo[0]+" WINS!!!"            //result variable is set to tell the user that player 2 wins (using playerTwo array index 0 to get their name)
-        } else if (playerTwo[2]<1)                   //if player 2's health is < 1, then this block is ran (using playerTwo array index 2 to check their health)
+        } else if(players[0].health<1){                   //if player 1's health is < 1, then this block is ran (using playerOne object (health key) in the players array)
+            result =players[1].name+" WINS!!!"            //result variable is set to tell the user that player 2 wins (using playerTwo object (name key) in the players array)
+        } else if (players[1].health<1)                   //if player 2's health is < 1, then this block is ran (using playerTwo object (health key) in the players array)
         {
-            result = playerOne[0]+" WINS!!!"           //result variable is set to tell the user that player 1 wins (using playerTwo array index 0 to get their name)
+            result = players[0].name+" WINS!!!"           //result variable is set to tell the user that player 1 wins (using playerOne object (name key) in the players array)
         };
        return result;                                   //returns the value of "result" so it can be used when the function winnerCheck() is called
     };
