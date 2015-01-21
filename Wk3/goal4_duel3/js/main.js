@@ -37,9 +37,6 @@
         if (round < 10) {                         //checking to see if the round is < 10, if so, then fight function called and button still says Fight.
             function fight() {                       //declaring beginning of function
 
-                //alert(playerOne[0] + ":" + playerOne[2] + "  *START*  " + playerTwo[0] + ":" + playerTwo[2]);       //pop up box with each player's name and starting health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed (i.e player name is in the index associated with the number 0, damage is index 1, and health is 2))
-                //for (var i = 0; i < 10; i++)                    //starting loop that will be the fight
-                //{
                     //random formula is - Math.floor(Math.random() * (max - min) + min);
                     var minDamage1 = players[0].damage * .5;        //calculating the minimum amount of damage player 1 takes (the information from the object created in the players array)
                     var minDamage2 = players[1].damage * .5;        //calculating the minimum amount of damage player 2 takes (the information from the object created in the players array)
@@ -50,7 +47,6 @@
                     players[0].health = players[0].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerOne)
                     players[1].health = players[1].health - f2;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerTwo)
                     console.log(players[0].health, players[1].health);              //checking to see if correct math is done (to see why health is displayed as the same)
-                    //console.log(playerOne[0]+": "+playerOne[2] + " " + playerTwo[0]+":"+playerTwo[2]);      //prints out each player's name and current health to the console log (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed)
 
                     //check for victor
                     var result = winnerCheck();                 //variable declared to check if there is a winner by using the winnerCheck() function
@@ -60,19 +56,18 @@
                         round++;                                //round number increases
                         document.getElementById('kabal').innerHTML = players[0].health;         //changing HTML to player's current health
                         document.getElementById('kratos').innerHTML = players[1].health;        //changing HTML to player's current health
-                        //alert(players[0].name + ":" + players[0].health + "  *ROUND " + round + " OVER" + "*  " + players[1].name + ":" + players[1].health);                  //pop up box saying Round X is over, and the player's name and current health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the objects inside the players array)
+                        document.getElementById('round').innerHTML = 'Round ' + round + ' is over!'; //changing HTML so it tells the user what round is done.
 
 
                     } else {                                     //if there is a winner, then this block of code is ran
                         //console.log(document.getElementById('scores').innerHTML);
                         document.getElementById('scores').innerHTML = result;           //changing the innerHTML of the id scores to the result of winnerCheck() if there is a winner, or both die
                         document.getElementById('scores').style.textAlign = 'center';   //centering the text of the result.
-
+                        document.getElementById('round').innerHTML = result;
                         //alert(result);                          //an alert with the winner's name is sent to the user
                         //break;                                  // ends the game
                     };
 
-                //};
             };
         } else {
             //code to disable button goes here.
@@ -91,13 +86,27 @@
         };
        return result;                                   //returns the value of "result" so it can be used when the function winnerCheck() is called
     };
+    var winnerResult = winnerCheck();
 
+    console.log(winnerResult);
     /*******  The program gets started below *******/
-    button.onclick = function(e) {
-        fight();
-
-        e.preventDefault();
-        return false;
+    console.log(document.getElementById('fight_btn'));
+ switch(winnerResult) {
+        case 'no winner':
+            button.onclick = function(e) {
+                fight();
+                e.preventDefault();
+                return false;
+            };
+            break;
+        case round >= 10:
+            button.innerHTML = "DONE!";
+            console.log(button.innerHTML);
+            break;
+        default:
+            button.innerHTML = "DONE!";
+            console.log(button.innerHTML);
+            break;
     };
 
 })();
