@@ -46,11 +46,11 @@
                     var minDamage2 = players[1].damage * .5;        //calculating the minimum amount of damage player 2 takes (the information from the object created in the players array)
                     var f1 = Math.floor(Math.random() * (players[0].damage - minDamage1) + minDamage1);       //calculating the amount of damage done to player 1 by subtracting minimum damage from player damage (getting player damage from the object created in players array)
                     var f2 = Math.floor(Math.random() * (players[1].damage - minDamage2) + minDamage2);       //calculating the amount of damage done to player 2 by subtracting minimum damage from player damage (getting player damage from the object created in players array)
-
+                    console.log("Player 1's damage: " + f1 + ", Player 2's damage: " + f2);         //checking to make sure damage done is random (having issues with the health being the same all the time)
                     //inflict damage
                     players[0].health = players[0].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerOne)
-                    players[1].health = players[1].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerTwo)
-
+                    players[1].health = players[1].health - f2;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerTwo)
+                    console.log(players[0].health, players[1].health);              //checking to see if correct math is done (to see why health is displayed as the same)
                     //console.log(playerOne[0]+": "+playerOne[2] + " " + playerTwo[0]+":"+playerTwo[2]);      //prints out each player's name and current health to the console log (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed)
 
                     //check for victor
@@ -59,7 +59,7 @@
                     if (result === "no winner")                   //checks the variable result to see if it equals "no winner"
                     {                                           //if there is no winner, this block of code is ran
                         round++;                                //round number increases
-                        alert(playerOne[0] + ":" + playerOne[2] + "  *ROUND " + round + " OVER" + "*  " + playerTwo[0] + ":" + playerTwo[2]);                  //pop up box saying Round X is over, and the player's name and current health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed)
+                        alert(players[0].name + ":" + players[0].health + "  *ROUND " + round + " OVER" + "*  " + players[1].name + ":" + players[1].health);                  //pop up box saying Round X is over, and the player's name and current health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the objects inside the players array)
 
 
                     } else {                                     //if there is a winner, then this block of code is ran
