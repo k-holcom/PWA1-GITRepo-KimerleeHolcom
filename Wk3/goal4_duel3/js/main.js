@@ -14,13 +14,25 @@
 
     console.log("FIGHT!!!");                //printing to console FIGHT!!!
     //player information
+    var players = [
+        playerOne = {name:'Kabal', damage:20, health:100},          //Object for Player one (name, damage and health)
+        playerTwo = {name:'Kratos', damage:20, health:100}          //Object for Player two (name, damage and health)
+    ];
+
+    //console.log(players[1].name);                                   //checked to see if the syntax was correct
     var playerOne = ["Kabal", 20, 100]; //player one's information wrapped up into an array
     var playerTwo = ["Kratos", 20, 100];    //player two's information wrapped up into an array
 
     //initiate round
     var round=0;                            //declaring initial round number
+    //manipulate CSS to have health numbers look like they are above the fighter
+    document.getElementById('kabal').style.margin = '0px 0px 0px 20%';          //changed the margin from 0px 0px 0px 15% to 0px 0px 0px 20%
+    document.getElementById('kratos').style.margin = '0px 0px 0px 55%';          //changed the margin from 0px 0px 0px 40% to 0px 0px 0px 55%
+
+    //checking to see if the round is < 10, if so, then fight function called and button still says Fight.
 
     function fight(){                       //declaring beginning of function
+
         alert(playerOne[0]+":"+playerOne[2]+"  *START*  "+playerTwo[0]+":"+playerTwo[2]);       //pop up box with each player's name and starting health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed (i.e player name is in the index associated with the number 0, damage is index 1, and health is 2))
         for (var i = 0; i < 10; i++)                    //starting loop that will be the fight
         {
@@ -34,7 +46,7 @@
             playerOne[2]-=f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health index with the new amount of health for playerOne)
             playerTwo[2]-=f2;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health index with the new amount of health for playerTwo)
 
-            console.log(playerOne[0]+": "+playerOne[2] + " " + playerTwo[0]+":"+playerTwo[2]);      //prints out each player's name and current health to the console log (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed)
+            //console.log(playerOne[0]+": "+playerOne[2] + " " + playerTwo[0]+":"+playerTwo[2]);      //prints out each player's name and current health to the console log (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed)
 
             //check for victor
             var result = winnerCheck();                 //variable declared to check if there is a winner by using the winnerCheck() function
