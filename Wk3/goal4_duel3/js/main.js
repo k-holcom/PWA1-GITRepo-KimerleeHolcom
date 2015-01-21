@@ -13,28 +13,27 @@
 (function(){
 
     console.log("FIGHT!!!");                //printing to console FIGHT!!!
+
     //player information
     var players = [
         playerOne = {name:'Kabal', damage:20, health:100},          //Object for Player one (name, damage and health)
         playerTwo = {name:'Kratos', damage:20, health:100}          //Object for Player two (name, damage and health)
     ];
 
-    //console.log(players[1].name);                                   //checked to see if the syntax was correct
-    var playerOne = ["Kabal", 20, 100]; //player one's information wrapped up into an array
-    var playerTwo = ["Kratos", 20, 100];    //player two's information wrapped up into an array
-
     //initiate round
     var round=0;                            //declaring initial round number
-    //manipulate CSS to have health numbers look like they are above the fighter
-    document.getElementById('kabal').style.margin = '0px 0px 0px 20%';          //changed the margin from 0px 0px 0px 15% to 0px 0px 0px 20%
-    document.getElementById('kratos').style.margin = '0px 0px 0px 55%';          //changed the margin from 0px 0px 0px 40% to 0px 0px 0px 55%
-    var button =document.querySelector('.buttonblue');
 
+    // create button variable to make things easier down the road
+    var button =document.querySelector('.buttonblue');                  //created a variable that holds the pointer for the fight button HTML
+
+    // Initializing Player health at top of screen
     document.getElementById('kabal').innerHTML = players[0].health;         //showing player's initial health by changing HTML via innerHTML
     document.getElementById('kratos').innerHTML = players[1].health;        //showing player's initial health by changing HTML via innerHTML
 
-    console.log(button);
-        if (round < 10) {                         //checking to see if the round is < 10, if so, then fight function called and button still says Fight.
+    //manipulate CSS to have health numbers look like they are above the fighter
+    document.getElementById('kabal').style.margin = '0px 0px 0px 20%';          //changed the margin from 0px 0px 0px 15% to 0px 0px 0px 20%
+    document.getElementById('kratos').style.margin = '0px 0px 0px 55%';          //changed the margin from 0px 0px 0px 40% to 0px 0px 0px 55%
+
             function fight() {                       //declaring beginning of function
 
                     //random formula is - Math.floor(Math.random() * (max - min) + min);
@@ -42,11 +41,11 @@
                     var minDamage2 = players[1].damage * .5;        //calculating the minimum amount of damage player 2 takes (the information from the object created in the players array)
                     var f1 = Math.floor(Math.random() * (players[0].damage - minDamage1) + minDamage1);       //calculating the amount of damage done to player 1 by subtracting minimum damage from player damage (getting player damage from the object created in players array)
                     var f2 = Math.floor(Math.random() * (players[1].damage - minDamage2) + minDamage2);       //calculating the amount of damage done to player 2 by subtracting minimum damage from player damage (getting player damage from the object created in players array)
-                    console.log("Player 1's damage: " + f1 + ", Player 2's damage: " + f2);         //checking to make sure damage done is random (having issues with the health being the same all the time)
+
                     //inflict damage
                     players[0].health = players[0].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerOne)
                     players[1].health = players[1].health - f2;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerTwo)
-                    console.log(players[0].health, players[1].health);              //checking to see if correct math is done (to see why health is displayed as the same)
+                    //console.log(players[0].health, players[1].health);              //checking to see if correct math is done (to see why health is displayed as the same)
 
                     //check for victor
                     var result = winnerCheck();                 //variable declared to check if there is a winner by using the winnerCheck() function
@@ -60,18 +59,19 @@
 
 
                     } else {                                     //if there is a winner, then this block of code is ran
+                        
                         //console.log(document.getElementById('scores').innerHTML);
                         document.getElementById('scores').innerHTML = result;           //changing the innerHTML of the id scores to the result of winnerCheck() if there is a winner, or both die
                         document.getElementById('scores').style.textAlign = 'center';   //centering the text of the result.
                         document.getElementById('round').innerHTML = result;
                         //alert(result);                          //an alert with the winner's name is sent to the user
+                        button.innerHTML = 'Done!';
+                        button.setAttribute('onclick', null);
                         //break;                                  // ends the game
                     };
 
             };
-        } else {
-            //code to disable button goes here.
-        };
+
 
     function winnerCheck(){                             //function used to check if there is a winner
         var result="no winner";                         //default result if none of the following code is true
@@ -88,25 +88,11 @@
     };
     var winnerResult = winnerCheck();
 
-    console.log(winnerResult);
     /*******  The program gets started below *******/
-    console.log(document.getElementById('fight_btn'));
- switch(winnerResult) {
-        case 'no winner':
-            button.onclick = function(e) {
-                fight();
-                e.preventDefault();
-                return false;
-            };
-            break;
-        case round >= 10:
-            button.innerHTML = "DONE!";
-            console.log(button.innerHTML);
-            break;
-        default:
-            button.innerHTML = "DONE!";
-            console.log(button.innerHTML);
-            break;
-    };
+button.onclick = function(e) {
+    fight();
 
+    e.preventDefault();
+    return false;
+};
 })();
