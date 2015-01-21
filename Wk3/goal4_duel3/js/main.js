@@ -28,42 +28,53 @@
     //manipulate CSS to have health numbers look like they are above the fighter
     document.getElementById('kabal').style.margin = '0px 0px 0px 20%';          //changed the margin from 0px 0px 0px 15% to 0px 0px 0px 20%
     document.getElementById('kratos').style.margin = '0px 0px 0px 55%';          //changed the margin from 0px 0px 0px 40% to 0px 0px 0px 55%
+    var button =document.querySelector('.buttonblue');
 
-    //checking to see if the round is < 10, if so, then fight function called and button still says Fight.
+    document.getElementById('kabal').innerHTML = players[0].health;         //showing player's initial health by changing HTML via innerHTML
+    document.getElementById('kratos').innerHTML = players[1].health;        //showing player's initial health by changing HTML via innerHTML
 
-    function fight(){                       //declaring beginning of function
+    console.log(button);
+        if (round < 10) {                         //checking to see if the round is < 10, if so, then fight function called and button still says Fight.
+            function fight() {                       //declaring beginning of function
+                document.getElementById('kabal').innerHTML = players[0].health;         //changing HTML to player's current health
+                document.getElementById('kratos').innerHTML = players[1].health;        //changing HTML to player's current health
+                //alert(playerOne[0] + ":" + playerOne[2] + "  *START*  " + playerTwo[0] + ":" + playerTwo[2]);       //pop up box with each player's name and starting health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed (i.e player name is in the index associated with the number 0, damage is index 1, and health is 2))
+                for (var i = 0; i < 10; i++)                    //starting loop that will be the fight
+                {
+                    //random formula is - Math.floor(Math.random() * (max - min) + min);
+                    var minDamage1 = players[0].damage * .5;        //calculating the minimum amount of damage player 1 takes (the information from the object created in the players array)
+                    var minDamage2 = players[1].damage * .5;        //calculating the minimum amount of damage player 2 takes (the information from the object created in the players array)
+                    var f1 = Math.floor(Math.random() * (players[0].damage - minDamage1) + minDamage1);       //calculating the amount of damage done to player 1 by subtracting minimum damage from player damage (getting player damage from the object created in players array)
+                    var f2 = Math.floor(Math.random() * (players[1].damage - minDamage2) + minDamage2);       //calculating the amount of damage done to player 2 by subtracting minimum damage from player damage (getting player damage from the object created in players array)
+                    console.log(f1, f2);              //checking to see if the variables are being set correctly
+                    var player1Health = players[0].health - f1;
+                    players[0].health = players[0].health - f1;
+                    console.log(players[0].health);
+                    //inflict damage
+                    players[0].health = players[0].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerOne)
+                    players[1].health = players[0].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health index with the new amount of health for playerTwo)
 
-        alert(playerOne[0]+":"+playerOne[2]+"  *START*  "+playerTwo[0]+":"+playerTwo[2]);       //pop up box with each player's name and starting health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed (i.e player name is in the index associated with the number 0, damage is index 1, and health is 2))
-        for (var i = 0; i < 10; i++)                    //starting loop that will be the fight
-        {
-            //random formula is - Math.floor(Math.random() * (max - min) + min);
-            var minDamage1 = playerOne[1] * .5;        //calculating the minimum amount of damage player 1 takes (using playerOne array index 1 for the damage)
-            var minDamage2 = playerTwo[1] * .5;        //calculating the minimum amount of damage player 2 takes (using playerTwo array index 1 for the damage)
-            var f1 = Math.floor(Math.random()*(playerOne[1]-minDamage1)+minDamage1);       //calculating the amount of damage done to player 1 by subtracting minimum damage from player damage (both for player 1, multiply it by a random number between 0 and 1, then adding the minimum damage. (using playerOne array index 1 for the damage)
-            var f2 = Math.floor(Math.random()*(playerTwo[1]-minDamage2)+minDamage2);       //calculating the amount of damage done to player 2 by subtracting minimum damage from player damage (both for player 2, multiply it by a random number between 0 and 1, then adding the minimum damage. (using playerTwo array index 1 for the damage)
+                    //console.log(playerOne[0]+": "+playerOne[2] + " " + playerTwo[0]+":"+playerTwo[2]);      //prints out each player's name and current health to the console log (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed)
 
-            //inflict damage
-            playerOne[2]-=f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health index with the new amount of health for playerOne)
-            playerTwo[2]-=f2;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health index with the new amount of health for playerTwo)
-
-            //console.log(playerOne[0]+": "+playerOne[2] + " " + playerTwo[0]+":"+playerTwo[2]);      //prints out each player's name and current health to the console log (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed)
-
-            //check for victor
-            var result = winnerCheck();                 //variable declared to check if there is a winner by using the winnerCheck() function
-            console.log(result);                        //prints out to the console if there is a winner
-            if (result==="no winner")                   //checks the variable result to see if it equals "no winner"
-            {                                           //if there is no winner, this block of code is ran
-                round++;                                //round number increases
-                alert(playerOne[0]+":"+playerOne[2]+"  *ROUND "+round+" OVER"+"*  "+playerTwo[0]+":"+playerTwo[2]);                  //pop up box saying Round X is over, and the player's name and current health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed)
+                    //check for victor
+                    var result = winnerCheck();                 //variable declared to check if there is a winner by using the winnerCheck() function
+                    console.log(result);                        //prints out to the console if there is a winner
+                    if (result === "no winner")                   //checks the variable result to see if it equals "no winner"
+                    {                                           //if there is no winner, this block of code is ran
+                        round++;                                //round number increases
+                        alert(playerOne[0] + ":" + playerOne[2] + "  *ROUND " + round + " OVER" + "*  " + playerTwo[0] + ":" + playerTwo[2]);                  //pop up box saying Round X is over, and the player's name and current health (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed)
 
 
-            } else{                                     //if there is a winner, then this block of code is ran
-                alert(result);                          //an alert with the winner's name is sent to the user
-                break;                                  // ends the game
+                    } else {                                     //if there is a winner, then this block of code is ran
+                        alert(result);                          //an alert with the winner's name is sent to the user
+                        break;                                  // ends the game
+                    };
+
+                };
             };
-
-          };
-    };
+        } else {
+            //code to disable button goes here.
+        };
 
     function winnerCheck(){                             //function used to check if there is a winner
         var result="no winner";                         //default result if none of the following code is true
@@ -80,6 +91,11 @@
     };
 
     /*******  The program gets started below *******/
-    fight();
+    button.onclick = function(e) {
+        fight();
+
+        e.preventDefault();
+        return false;
+    };
 
 })();
