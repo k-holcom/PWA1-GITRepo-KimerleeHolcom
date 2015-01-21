@@ -46,13 +46,10 @@
                     var minDamage2 = players[1].damage * .5;        //calculating the minimum amount of damage player 2 takes (the information from the object created in the players array)
                     var f1 = Math.floor(Math.random() * (players[0].damage - minDamage1) + minDamage1);       //calculating the amount of damage done to player 1 by subtracting minimum damage from player damage (getting player damage from the object created in players array)
                     var f2 = Math.floor(Math.random() * (players[1].damage - minDamage2) + minDamage2);       //calculating the amount of damage done to player 2 by subtracting minimum damage from player damage (getting player damage from the object created in players array)
-                    console.log(f1, f2);              //checking to see if the variables are being set correctly
-                    var player1Health = players[0].health - f1;
-                    players[0].health = players[0].health - f1;
-                    console.log(players[0].health);
+                    
                     //inflict damage
                     players[0].health = players[0].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerOne)
-                    players[1].health = players[0].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health index with the new amount of health for playerTwo)
+                    players[1].health = players[1].health - f1;                        //subtract the amount of damage done from the player's "initial health", each round the "initial health" is changed to the result of this calculation (replacing the health key with the new amount of health for playerTwo)
 
                     //console.log(playerOne[0]+": "+playerOne[2] + " " + playerTwo[0]+":"+playerTwo[2]);      //prints out each player's name and current health to the console log (instead of using playerOneName, playerOneHealth, playerTwoName, and playerTwoHealth, the information is pulled from the arrays using the indexes for each piece of information needed)
 
