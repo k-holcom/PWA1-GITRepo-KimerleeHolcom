@@ -59,7 +59,7 @@
 
 
                     } else {                                     //if there is a winner, then this block of code is ran
-                        
+
                         //console.log(document.getElementById('scores').innerHTML);
                         document.getElementById('scores').innerHTML = result;           //changing the innerHTML of the id scores to the result of winnerCheck() if there is a winner, or both die
                         document.getElementById('scores').style.textAlign = 'center';   //centering the text of the result.
