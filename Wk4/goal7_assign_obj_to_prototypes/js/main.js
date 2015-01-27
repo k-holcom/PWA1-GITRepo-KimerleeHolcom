@@ -51,3 +51,13 @@
         //change the innerHTML of that id
         fieldId.innerHTML = info;                   //setting HTML to the info
     };
+
+    //create the updateAction function
+    function updateAction(){
+        //loop through the people array, and calls upon the actionUpdate() inside the person.blueprint.js file
+        people.forEach(function(element){           //initiating forEach loop
+            element.actionUpdate();                 //calls the actionUpdate function in the person_blueprint.js file
+        });
+    };
+
+})();
