@@ -25,3 +25,17 @@ function Person(name, row) {                             //create the constructo
     var actionId = document.getElementById('r' + this.row + 'c3');      //point to the column three in that person's row
     actionId.innerHTML = this.actions;      //sets the innerHTML to the action stored in this.actions
 };
+
+Person.prototype.actionUpdate = function(){     //create a prototype function called actionUpdate
+
+    if(Math.floor(Math.random() < 0.01)){       //check to see if the random number(that is rounded down) is less than 0.01
+
+        var chooseAction = Math.floor(Math.random() * Person.actions.length);        //if it is, then set variable chooseAction to a random number rounded down between 0 and the length of the Persons.actions array
+
+        this.actions = Person.actions[chooseAction];        //set this.actions equal to Persons.actions[chooseAction]
+
+        var actionId = document.getElementById('r' + this.row + 'c3');          //point to the row/column needed (set it to a variable to make it easier to write out)
+
+        actionId.innerHTML = this.actions;          //enter this.actions into the HTML using innerHTML
+    };
+};
