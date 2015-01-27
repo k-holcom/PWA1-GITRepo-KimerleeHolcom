@@ -14,3 +14,16 @@
         row1Name = document.getElementById('r1c1'),     //points to column 1 in row 1
         row2Name = document.getElementById('r2c1'),     //points to column 1 in row 2
         row3Name = document.getElementById('r3c1');     //points to column 1 in row 3
+
+//create for loop total of 3 people.
+    for(var i = 0; i < 3; i++) {                         //initiates the for loop
+        //create local variables for For loop
+        var namesIndex = Math.floor(Math.random() * names.length);  //creates a random number to randomly choose a name from the names array
+        //after determining the random index of the names array, call Person constructor (in person_blueprint.js)
+        var person = new Person(names[namesIndex], rowNum),     //creates a new Person by passing the name and row number for the new person
+            personName = person.name;                           //sets personName to the name that is stored in person.name
+
+        //add person variable (the new Person object) to the people array
+        people.push(person);                //use push method to add person to people array
+
+    };
