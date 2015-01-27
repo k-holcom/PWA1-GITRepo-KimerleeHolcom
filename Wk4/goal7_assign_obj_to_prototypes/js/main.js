@@ -36,4 +36,7 @@
             rowNum--;               //decreasing rowNum by 1
         };
 
+        //at the end of the for loop, add one to the rowNum
+        rowNum++;                   //increase rowNum by 1
+
     };
