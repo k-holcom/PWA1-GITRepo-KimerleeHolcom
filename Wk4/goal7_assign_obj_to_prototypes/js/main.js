@@ -40,3 +40,14 @@
         rowNum++;                   //increase rowNum by 1
 
     };
+
+    //create the variable for the interval so the action is automatically changing
+    var interval = setInterval(updateAction, 1000 /30);             //sets the interval to 30 times per second.
+    
+    //create the populateHTML function passing in info and colId (information needed to be entered into the HTML and the column ID for where the information is going)
+    function populateHTML(info,colId){
+        //create local variable to hold the pointer of the colId
+        var fieldId = document.getElementById(colId);       //points to the HTML id that the info needs to be placed in.
+        //change the innerHTML of that id
+        fieldId.innerHTML = info;                   //setting HTML to the info
+    };
